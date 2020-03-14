@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f1044e29-ca24-47f2-a499-e72c1a68df4b" name="Default Changelist" comment="" />
@@ -9,13 +9,19 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/MiniJSON.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Login.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Pixelate/Pixelate.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/CaretBlink.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/SetNickname.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Pixelate/Pixelate.shader" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Assets/Login.cs" />
+        <option value="$PROJECT_DIR$/Assets/Pixelate/Pixelate.cs" />
+        <option value="$PROJECT_DIR$/Assets/Pixelate/Pixelate.shader" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/CaretBlink.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/SetNickname.cs" />
       </list>
     </option>
   </component>
@@ -66,7 +72,7 @@
       <updated>1584183307088</updated>
       <workItem from="1584183310973" duration="65000" />
       <workItem from="1584183396091" duration="4000" />
-      <workItem from="1584183500923" duration="879000" />
+      <workItem from="1584183500923" duration="3912000" />
     </task>
     <servers />
   </component>

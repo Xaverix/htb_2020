@@ -7,16 +7,19 @@ using Random = UnityEngine.Random;
 
 public class GameController : MonoBehaviour
 {
-    public int score;
+    public static int score;
     public TextMeshProUGUI scoretext;
     public List<Transform> spawnPoints;
     public List<GameObject> enemies;
     public List<GameObject> hearts;
+    public GameObject gameOverScreen;
 
     public static float enemySpeed;
     private float _enemySpawnSpeed;
     private float _spawnT;
     private int lives = 3;
+
+    public static bool isStarted;
 
     private static GameController _instance;
 
@@ -37,6 +40,11 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (lives == 0 || !isStarted)
+        {
+            return;
+        }
+        
         enemySpeed += 0.02f * Time.deltaTime;
         _enemySpawnSpeed -= 0.02f * Time.deltaTime;
 
@@ -71,13 +79,16 @@ public class GameController : MonoBehaviour
 
         if (_instance.lives == 0)
         {
-            
+            enemySpeed = 0;
+            _instance._enemySpawnSpeed = 100000f;
+            isStarted = false;
+            _instance.gameOverScreen.SetActive(true);
         }
     }
 
     public static void AddScore()
     {
-        _instance.score += 100;
-        _instance.scoretext.text = _instance.score.ToString();
+        score += 100;
+        _instance.scoretext.text = score.ToString();
     }
 }

@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class SetNickname : MonoBehaviour
 {
-    private string _letters = " ABCDEFGHIJKLMNOPQRSTUVW1234567890";
+    private string _letters = " ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
     private int _currentLetter;
 
     public static string nickname;
@@ -68,6 +68,7 @@ public class SetNickname : MonoBehaviour
                 _nicknameSet = true;
                 transform.parent.gameObject.SetActive(false);
                 Debug.Log("Nickname: " + nickname);
+                GameController.isStarted = true;
             }
         }
         

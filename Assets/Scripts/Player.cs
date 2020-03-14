@@ -22,6 +22,11 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (!GameController.isStarted)
+        {
+            return;
+        }
+        
         Vector2 playerInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         playerInput = Vector2.ClampMagnitude(playerInput, 1f);
 
@@ -30,6 +35,11 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
+        if (!GameController.isStarted)
+        {
+            return;
+        }
+        
         _shootT += Time.deltaTime;
         
         if (Input.GetKey(KeyCode.Space))

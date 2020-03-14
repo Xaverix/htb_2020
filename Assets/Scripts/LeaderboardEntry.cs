@@ -9,10 +9,10 @@ public class LeaderboardEntry : MonoBehaviour
     public TextMeshProUGUI nick;
     public TextMeshProUGUI score;
 
-    public void SetEntry(int pos, string nick, string score)
+    public void SetEntry(int pos, string nick, long score)
     {
         position.text = pos.ToString();
         this.nick.text = nick;
-        this.score.text = score;
+        this.score.text = score.ToString();
     }
 }

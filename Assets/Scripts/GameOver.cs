@@ -16,7 +16,7 @@ public class GameOver : MonoBehaviour
     private void OnEnable()
     {
         gameOverText.text = "Good job " + SetNickname.nickname + "!\nBut is score of " + GameController.score + " points enough to save the world?";
-        StartCoroutine(GetLeaderboard());
+        StartCoroutine(SendScore());
     }
 
     // Update is called once per frame
@@ -43,6 +43,7 @@ public class GameOver : MonoBehaviour
             Dictionary<string,object> dict = Json.Deserialize(www.downloadHandler.text) as Dictionary<string,object>;
 
             string status = dict["status"] as string;
+            StartCoroutine(GetLeaderboard());
             
             Debug.Log(www.downloadHandler.text);
         }
@@ -66,7 +67,7 @@ public class GameOver : MonoBehaviour
             for (int i = 0; i < players.Count; i++)
             {
                 Dictionary<string, object> player = players[i] as Dictionary<string, object>;
-                Instantiate(entryPrefab, entryParent).GetComponent<LeaderboardEntry>().SetEntry(i, player["username"] as string, player["score"] as string);
+                Instantiate(entryPrefab, entryParent).GetComponent<LeaderboardEntry>().SetEntry(i+1, player["username"] as string, (long)player["score"]);
             }
             
             string status = dict["status"] as string;

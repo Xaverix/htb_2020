@@ -4,7 +4,7 @@ using MiniJSON;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class Login : MonoBehaviour
+public class GetViruses : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -23,7 +23,7 @@ public class Login : MonoBehaviour
         WWWForm form = new WWWForm();
         form.AddField("myField", "myData");
  
-        UnityWebRequest www = UnityWebRequest.Get("http://vps.bloodystation.com:1337/api/1.0/login");
+        UnityWebRequest www = UnityWebRequest.Get("http://vps.bloodystation.com:1337/api/1.0/getViruses");
         yield return www.SendWebRequest();
  
         if(www.isNetworkError || www.isHttpError) {
@@ -38,8 +38,12 @@ public class Login : MonoBehaviour
             Dictionary<string, object> content = dict["content"] as Dictionary<string, object>;
             
             Debug.Log("Status: " + status);
-            Debug.Log("User ID: " + content["id"]);
-            Debug.Log("Username: " + content["username"]);
+
+            List<object> viruses = content["viruses"] as List<object>;
+            foreach (var virus in viruses)
+            {
+                Debug.Log(virus as string);
+            }
         }
     }
 }

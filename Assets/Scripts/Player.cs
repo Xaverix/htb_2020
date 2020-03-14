@@ -9,6 +9,9 @@ public class Player : MonoBehaviour
     public GameObject projectile;
     
     private Rigidbody2D _rb;
+
+    private float _shootCooldown = 0.6f;
+    private float _shootT;
     
     // Start is called before the first frame update
     private void Awake()
@@ -27,9 +30,15 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        _shootT += Time.deltaTime;
+        
+        if (Input.GetKey(KeyCode.Space))
         {
-            Shoot();
+            if (_shootT >= _shootCooldown)
+            {
+                Shoot();
+                _shootT = 0f;
+            }
         }
     }
 

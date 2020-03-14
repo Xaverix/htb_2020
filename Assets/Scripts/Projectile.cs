@@ -5,13 +5,15 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public float velocity;
+
+    private Rigidbody2D _rb;
+    
+    private void Awake()
     {
-        
+        _rb = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (transform.position.x < -13)
@@ -20,11 +22,18 @@ public class Projectile : MonoBehaviour
         }
     }
 
+    private void FixedUpdate()
+    {
+        _rb.velocity = Vector2.left * velocity;
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Enemy") && transform.position.x > -11)
         {
-            
+            GameController.AddScore();
+            Destroy(other.gameObject);
+            Destroy(gameObject);
         }
     }
 }
